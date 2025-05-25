@@ -1,0 +1,89 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%; /* Default primary, can be overridden by dark */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%; /* Default accent */
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%; /* Ring for focus, can be a vibrant color in dark mode */
+
+    --radius: 0.5rem;
+    /* ... keep existing code (sidebar vars if any) */
+  }
+
+  .dark {
+    --background: 224 71% 4%; /* Very dark blue/black */
+    --foreground: 210 40% 98%; /* Light text */
+
+    --card: 224 71% 10%; /* Darker card background */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%; /* Vibrant blue for primary actions */
+    --primary-foreground: 224 71% 15%; /* Contrasting text for primary */
+
+    --secondary: 217 33% 17%; /* Darker secondary */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 217 91% 60%; /* Same as primary for accent, or a different vibrant color */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%; /* Darker destructive */
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 25%; /* Softer border for dark mode */
+    --input: 217 33% 17%; /* Dark input background */
+    --ring: 217 91% 70%; /* Brighter ring for focus */
+    /* ... keep existing code (dark sidebar vars if any) */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  #root {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
