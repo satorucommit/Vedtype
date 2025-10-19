@@ -59,8 +59,9 @@ export type Difficulty = "easy" | "medium" | "hard";
 const lastUsedFirstSentenceIndex: { [key in Difficulty]?: number } = {};
 const lastUsedSentencesInBlock: { [key in Difficulty]?: number[] } = {};
 
-const addSpaceBetweenLetters = (text: string): string => {
-  return text; // Standard spacing
+const processTextForTyping = (text: string): string => {
+  // Convert to lowercase and remove all punctuation
+  return text.toLowerCase().replace(/[^a-z0-9\s]/g, '');
 };
 
 export const getParagraph = (difficulty: Difficulty): string => {
@@ -138,7 +139,7 @@ export const getParagraph = (difficulty: Difficulty): string => {
   lastUsedSentencesInBlock[difficulty] = currentBlockIndices;
 
   const paragraph = blockSentences.join(' ');
-  return addSpaceBetweenLetters(paragraph);
+  return processTextForTyping(paragraph);
 };
 
 // Reset last used indices when initialParagraph is requested or difficulty changes often.
@@ -153,7 +154,7 @@ export const resetParagraphMemory = () => {
 };
 
 
-export const initialParagraph = addSpaceBetweenLetters(getParagraph("easy"));
+export const initialParagraph = processTextForTyping(getParagraph("easy"));
 // Call reset on initial load if desired, or manage through useTypingGame's reset.
 resetParagraphMemory();
 

@@ -61,35 +61,37 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
-      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col items-center">
-        <Controls
-          timeOptions={timeOptions}
-          selectedTime={selectedTime}
-          onTimeChange={handleTimeChange}
-          difficultyOptions={difficultyOptions}
-          selectedDifficulty={selectedDifficulty}
-          onDifficultyChange={handleDifficultyChange}
-          onRestart={handleRestart}
-          disabled={timerRunning && !testFinished}
-        />
-        <Results 
-          wpm={wpm} 
-          accuracy={accuracy} 
-          errors={errors}
-          timeInitial={selectedTime}
-          timeLeft={timeLeft}
-          testFinished={testFinished} 
-        />
-        {!testFinished && (
-          <TypingArea
-            charStates={charStates}
-            typedText={typedText}
-            onInputChange={handleInputChange}
-            onKeyDown={handleKeyDown}
-            disabled={testFinished || timeLeft === 0}
-            currentTypedIndex={typedText.length}
+      <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col items-center justify-start">
+        <div className="w-full max-w-4xl flex flex-col items-center">
+          <Controls
+            timeOptions={timeOptions}
+            selectedTime={selectedTime}
+            onTimeChange={handleTimeChange}
+            difficultyOptions={difficultyOptions}
+            selectedDifficulty={selectedDifficulty}
+            onDifficultyChange={handleDifficultyChange}
+            onRestart={handleRestart}
+            disabled={timerRunning && !testFinished}
           />
-        )}
+          <Results 
+            wpm={wpm} 
+            accuracy={accuracy} 
+            errors={errors}
+            timeInitial={selectedTime}
+            timeLeft={timeLeft}
+            testFinished={testFinished} 
+          />
+          {!testFinished && (
+            <TypingArea
+              charStates={charStates}
+              typedText={typedText}
+              onInputChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              disabled={testFinished || timeLeft === 0}
+              currentTypedIndex={typedText.length}
+            />
+          )}
+        </div>
       </main>
       <Footer />
     </div>

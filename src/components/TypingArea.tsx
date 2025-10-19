@@ -31,9 +31,9 @@ const TypingArea: React.FC<TypingAreaProps> = ({
   }, [disabled]);
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto" onClick={() => inputRef.current?.focus()}>
+    <div className="relative w-full max-w-4xl mx-auto mt-4" onClick={() => inputRef.current?.focus()}>
       <div
-        className="text-left p-6 bg-card rounded-lg shadow-lg leading-relaxed tracking-wider select-none min-h-[140px] flex flex-wrap items-center"
+        className="text-left p-8 bg-card rounded-lg shadow-lg leading-relaxed tracking-wider select-none min-h-[180px] flex flex-wrap items-center border border-primary/20 shadow-primary/10"
         aria-label="Text to type"
       >
         {charStates.map((charObj, index) => (
@@ -54,8 +54,8 @@ const TypingArea: React.FC<TypingAreaProps> = ({
         onKeyDown={onKeyDown}
         disabled={disabled}
         className="absolute top-0 left-0 w-full h-full opacity-0 cursor-default"
-        aria-hidden="true" // Hidden from accessibility tree as visual text is primary
-        tabIndex={-1} // Not focusable with Tab, but programmatically
+        aria-hidden="true"
+        tabIndex={-1}
         autoComplete="off"
         autoCorrect="off"
         autoCapitalize="off"
